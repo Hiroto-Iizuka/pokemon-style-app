@@ -47,3 +47,4 @@ end
 # 技インスタンス生成
 trainer = Trainer.new(moves)
 trainer.disp_moves
+trainer.select_move
