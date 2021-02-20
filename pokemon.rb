@@ -26,6 +26,8 @@ class Pokemon
       damage = @offense - enemy.defense
     end
 
+    # ~~~~~攻撃属性が弱点かどうかを判定
+    weakjudge(enemyaction)
     enemy.hp -= damage
 
     puts "#{enemy.name}は#{damage}のダメージを受けた"
@@ -36,4 +38,10 @@ class Pokemon
     @offense * 1.5
   end
 
+  # ~~~~~enemyactionのselected_moveの :type を呼び出したい
+  def weakjudge(enemyaction)
+    if selected_move.type == "みず"
+      damage *= 1.8
+    end
+  end
 end
