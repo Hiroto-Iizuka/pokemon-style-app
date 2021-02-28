@@ -1,10 +1,9 @@
 require_relative './lib/pokemon'
 require_relative './lib/move'
-require_relative './lib/trainer'
 
 require_relative './lib/enemy'
 require_relative './lib/enemy_move'
-require_relative './lib/enemyaction'
+
 
 
 
@@ -26,12 +25,11 @@ enemy_move_params = [
 
 # 技インスタンス生成
 pokemon.register_move(move_params)
-trainer.disp_moves
-trainer.select_move(trainer.moves)
-pokemon.move_name(trainer.selected_move)
+pokemon.disp_moves
+pokemon.select_move
+pokemon.move_name
 pokemon.attack(enemy)
 
-#enemyaction = EnemyAction.new(enemy_move_params)
-#enemyaction.select_move(enemyaction.enemymoves)
-#enemy.move_name(enemyaction.selected_move)
-#enemy.attack(pokemon)
+enemy.register_move(enemy_move_params)
+enemy.select_move
+enemy.move_name

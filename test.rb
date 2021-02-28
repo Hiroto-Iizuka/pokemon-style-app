@@ -1,5 +1,3 @@
-require_relative './lib/enemy'
-
 class Pokemon
   attr_reader :name, :type, :offense, :defense, :moves
   attr_accessor :hp

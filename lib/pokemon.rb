@@ -1,5 +1,5 @@
 class Pokemon
-  attr_reader :name, :type, :offense, :moves
+  attr_reader :name, :type, :offense, :defense, :moves
   attr_accessor :hp
   # 初期ステータス
   def initialize(**params)
@@ -26,8 +26,20 @@ class Pokemon
     end
   end
 
-  def move_name(selected_move)
-    puts "#{@name}の#{selected_move.name}!!"
+  # 技の選択
+  def select_move
+    while true
+      print "わざの番号を選択 > "
+      select_move_num = gets.to_i
+      @selected_move = @moves.find{|move| move.id == select_move_num}
+      break if !@selected_move.nil?
+      puts "#{@moves.first.id}から#{@moves.last.id}の番号から選んでください。"
+    end
+    moves[select_move_num - 1]
+  end
+
+  def move_name
+    puts "#{@name}の#{@selected_move.name}!!"
   end
 
   # 攻撃
@@ -51,6 +63,4 @@ class Pokemon
   def calculate_critical_hit
     @offense * 1.5
   end
-
-
 end

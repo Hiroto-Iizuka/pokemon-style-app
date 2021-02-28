@@ -1,5 +1,5 @@
 class Enemy
-  attr_reader :name, :type, :offense, :defense
+  attr_reader :name, :type, :offense, :defense, :enemymoves
   attr_accessor :hp
   # 初期ステータス
   def initialize(**params)
@@ -8,10 +8,25 @@ class Enemy
     @hp = params[:hp]
     @offense = params[:offense]
     @defense = params[:defense]
+    @enemymoves = []
   end
 
-  def move_name(selected_move)
-    puts "#{@name}の#{selected_move.name}!!"
+  # 技を登録
+  def register_move(enemy_move_params)
+    enemy_move_params.each do |param|
+      @enemymoves << EnemyMove.new(param)
+    end
+  end
+
+  # 自動で技の選択
+  def select_move
+    select_move_num = rand(1..2)
+    @selected_move = enemymoves.find { |move| move.id == select_move_num }
+    enemymoves[select_move_num - 1]
+  end
+
+  def move_name
+    puts "#{@name}の#{@selected_move.name}!!"
   end
 
   # 攻撃
