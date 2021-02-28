@@ -1,25 +1,5 @@
 class Trainer
-  attr_reader :moves, :selected_move
-  def initialize(move_params)
-    @moves = []
-    register_move(move_params)
-  end
-
-  # 技を登録
-  def register_move(move_params)
-    move_params.each do |param|
-      @moves << Move.new(param)
-    end
-  end
-
-  # 技の表示
-  def disp_moves
-    puts "わざ一覧 "
-    @moves.each do |move|
-      puts "#{move.id}.#{move.name} (#{move.type}タイプ)"
-    end
-  end
-
+  attr_reader :selected_move
   # 技の選択
   def select_move(moves)
     while true

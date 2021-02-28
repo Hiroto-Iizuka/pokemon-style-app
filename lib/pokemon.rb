@@ -1,5 +1,5 @@
 class Pokemon
-  attr_reader :name, :type, :offense, :defense
+  attr_reader :name, :type, :offense, :moves
   attr_accessor :hp
   # 初期ステータス
   def initialize(**params)
@@ -8,6 +8,22 @@ class Pokemon
     @hp = params[:hp]
     @offense = params[:offense]
     @defense = params[:defense]
+    @moves = []
+  end
+
+  # 技を登録
+  def register_move(move_params)
+    move_params.each do |param|
+      @moves << Move.new(param)
+    end
+  end
+
+  # 技の表示
+  def disp_moves
+    puts "わざ一覧 "
+    @moves.each do |move|
+      puts "#{move.id}.#{move.name} (#{move.type}タイプ)"
+    end
   end
 
   def move_name(selected_move)

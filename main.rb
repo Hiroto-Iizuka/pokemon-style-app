@@ -25,13 +25,13 @@ enemy_move_params = [
 ]
 
 # 技インスタンス生成
-trainer = Trainer.new(move_params)
+pokemon.register_move(move_params)
 trainer.disp_moves
 trainer.select_move(trainer.moves)
 pokemon.move_name(trainer.selected_move)
 pokemon.attack(enemy)
 
-enemyaction = EnemyAction.new(enemy_move_params)
-enemyaction.select_move(enemyaction.enemymoves)
-enemy.move_name(enemyaction.selected_move)
-enemy.attack(pokemon)
+#enemyaction = EnemyAction.new(enemy_move_params)
+#enemyaction.select_move(enemyaction.enemymoves)
+#enemy.move_name(enemyaction.selected_move)
+#enemy.attack(pokemon)
