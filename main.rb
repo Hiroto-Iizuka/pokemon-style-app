@@ -1,10 +1,10 @@
-require './pokemon'
-require './move'
-require './trainer'
+require_relative './lib/pokemon'
+require_relative './lib/move'
+require_relative './lib/trainer'
 
-require './enemy'
-require './enemy_move'
-require './enemyaction'
+require_relative './lib/enemy'
+require_relative './lib/enemy_move'
+require_relative './lib/enemyaction'
 
 
 
